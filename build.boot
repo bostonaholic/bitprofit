@@ -4,7 +4,8 @@
                  [pandeiro/boot-http "0.7.3" :scope "test"]
                  [org.clojure/clojure "1.8.0" :sope "provided"]
                  [org.clojure/clojurescript "1.8.40" :scope "provided"]
-                 [reagent "0.6.0-alpha"]])
+                 [reagent "0.6.0-alpha"]
+                 [cljs-ajax "0.5.4"]])
 
 (require
  '[adzerk.boot-cljs :refer [cljs]]
