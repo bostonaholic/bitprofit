@@ -1,0 +1,3 @@
+{:require  [bitprofit.core]
+ :init-fns [bitprofit.core/main]
+ :compiler-options {}}
