@@ -3,7 +3,8 @@
  :dependencies '[[adzerk/boot-cljs "1.7.228-1" :scope "test"]
                  [pandeiro/boot-http "0.7.3" :scope "test"]
                  [org.clojure/clojure "1.8.0" :sope "provided"]
-                 [org.clojure/clojurescript "1.8.40" :scope "provided"]])
+                 [org.clojure/clojurescript "1.8.40" :scope "provided"]
+                 [reagent "0.6.0-alpha"]])
 
 (require
  '[adzerk.boot-cljs :refer [cljs]]
