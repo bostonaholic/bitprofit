@@ -1,4 +1,9 @@
 (ns bitprofit.formatters)
 
-(defn usd [x]
+(defmulti usd type)
+
+(defmethod usd js/String [x]
+  (usd (js/Number. x)))
+
+(defmethod usd :default [x]
   (str "$" (.toFixed x 2)))

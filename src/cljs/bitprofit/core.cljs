@@ -5,14 +5,20 @@
             [reagent.core :as reagent]))
 
 (defonce app-state (reagent/atom {:error nil
-                                  :hash-rate 4730.00
-                                  :power 1293.00
-                                  :power-cost 0.1231
-                                  :pool-rate 0.01
+
+                                  ;; user defined variables
+                                  :hash-rate 5060.00
+                                  :power 1278.00
+                                  :power-cost 0.10
+                                  :pool-rate 0.00
+                                  :hardware-cost 0.00
+
+                                  ;; BTC network defined variables
                                   :difficulty 178678307671.68800000
+                                  :difficulty-change 0.05
                                   :block-reward 25.00000000
-                                  :bitcoin-to-dollar 450.00
-                                  :hardware-cost 800.00}))
+                                  :bitcoin-to-dollar 450.00}))
+
 (defn load-from-btc-price-index! []
   (price-index/get-last (fn [amt] (swap! app-state assoc :bitcoin-to-dollar amt))
                         (fn [response] (swap! app-state assoc :error "Unable to retrieve the latest BTC amount."))))
