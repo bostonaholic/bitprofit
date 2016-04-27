@@ -5,6 +5,7 @@
             [reagent.core :as reagent]))
 
 (defonce app-state (reagent/atom {:error nil
+                                  :months 12
 
                                   ;; user defined variables
                                   :hash-rate 5060.00
