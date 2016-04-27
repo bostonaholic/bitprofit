@@ -33,7 +33,7 @@
    [:div.row
     [:div.medium-12.columns
      [:span.float-right "Live Bitcoin data made possible by "
-      [:a {:href "" :target "_blank"} "BitcoinAverage Price Index"]
+      [:a {:href "https://bitcoinaverage.com/" :target "_blank"} "BitcoinAverage Price Index"]
       " and "
-      [:a {:href "" :target "_blank"} "Toshi"]
+      [:a {:href "https://bitcoin.toshi.io/" :target "_blank"} "Toshi"]
       "."]]]])

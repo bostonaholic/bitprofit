@@ -10,15 +10,17 @@
     [:div.top-bar-title
      [:strong "Bitprofit.io"]]]
    
+   [:div.row [:h2 " "]]
+
    [:div.row
     [:div.row
      [error state]]
 
     [:div.row
-     [:div.medium-6.columns.callout.success
+     [:div.medium-5.columns.callout.success
       [user-vars-form state]]
 
-     [:div.medium-6.columns
+     [:div.medium-6.columns.callout.secondary
       [btc-network-vars-form state]]]
 
     [:div.row
