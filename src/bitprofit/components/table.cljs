@@ -4,14 +4,13 @@
 
 (defn table [state]
   (let [hash-time (calc/hash-time (:difficulty @state) (:hash-rate @state))
-        power-cost-per-year (calc/power-cost-per-year (:power @state) (:power-cost @state))
         blocks-per-year (calc/blocks-per-year hash-time)
         coins-per-year (calc/coins-per-year (:block-reward @state) blocks-per-year)
         revenue-per-year (calc/revenue-per-year coins-per-year (:bitcoin-to-dollar @state))
-        pool-fees (calc/pool-fees revenue-per-year (:pool-rate @state))
+        power-cost-per-year (calc/power-cost-per-year (:power @state) (:power-cost @state))
         profit-per-year (calc/profit-per-year revenue-per-year power-cost-per-year (:pool-rate @state))
         net-profit (calc/net-profit profit-per-year (:hardware-cost @state))
-        break-even-days (calc/break-even-days profit-per-year (:hardware-cost @state))]
+        pool-fees (calc/pool-fees revenue-per-year (:pool-rate @state))]
     [:table
      [:thead
       [:tr
