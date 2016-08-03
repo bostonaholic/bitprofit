@@ -45,3 +45,7 @@
 
 (defn line-chart [state]
   [line-chart-inner @state])
+
+(defn duration [state]
+  [:input#months {:type "text" :value (:months @state)
+                  :on-change #(swap! state assoc :months (int (-> % .-target .-value)))}])
