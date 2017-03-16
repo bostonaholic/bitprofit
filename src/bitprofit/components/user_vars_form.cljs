@@ -25,7 +25,7 @@
 
    [:div.row
     [:div.medium-4.columns
-     [:label.text-right.middle {:for "pool-rate"} "Pool Fees"]]
+     [:label.text-right.middle {:for "pool-rate"} "Pool Fees (%)"]]
     [:div.medium-8.columns
      [:input#pool-rate {:type "text" :value (:pool-rate @state)
                         :on-change #(swap! state assoc :pool-rate (-> % .-target .-value))}]]]

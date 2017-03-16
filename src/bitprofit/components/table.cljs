@@ -17,7 +17,7 @@
        [:th "Bitcoins"]
        [:th "Revenue (USD)"]
        [:th "Power Cost (USD)"]
-       [:th "Pool Fees"]
+       [:th "Pool Fees (USD)"]
        [:th "Hardware Costs"]
        [:th "Profit"]
        [:th "Net Profit"]]]
