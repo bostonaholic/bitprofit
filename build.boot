@@ -5,8 +5,8 @@
                  [crisptrutski/boot-cljs-test "0.3.4" :scope "test"]
                  [pandeiro/boot-http "0.8.3" :scope "test"]
 
-                 [org.clojure/clojure "1.8.0"]
-                 [org.clojure/clojurescript "1.8.51"]
+                 [org.clojure/clojure "1.9.0"]
+                 [org.clojure/clojurescript "1.9.946"]
                  [reagent "0.6.0-alpha"]
                  [cljs-ajax "0.5.4"]
                  [cljsjs/chartjs "2.0.1-0"]])
