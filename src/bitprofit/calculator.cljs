@@ -10,10 +10,10 @@
 (defn hash-time
   "the average amount of time to find a single share
 
-  hash-rate: GH/s"
-  [difficulty hash-rate] ;; KH/s (use GH/s instead)
+  hash-rate: TH/s"
+  [difficulty hash-rate]
   (/ (* difficulty (Math/pow 2 32))
-     (* hash-rate 1000 1000 1000)))
+     (* hash-rate 1000 1000 1000 1000)))
 
 (defn power-cost-per-year
   "power-consumption: Watts

@@ -4,7 +4,7 @@
   [:form
    [:div.row
     [:div.medium-4.columns
-     [:label.text-right.middle {:for "hash-rate"} "Hash Rate (GH/s)"]]
+     [:label.text-right.middle {:for "hash-rate"} "Hash Rate (TH/s)"]]
     [:div.medium-8.columns
      [:input#hash-rate {:type "text" :value (:hash-rate @state)
                         :on-change #(swap! state assoc :hash-rate (-> % .-target .-value))}]]]
