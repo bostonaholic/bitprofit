@@ -11,7 +11,7 @@
                                   :hash-rate 14.00
                                   :power 1372.00
                                   :power-cost 0.10
-                                  :pool-rate 0.00
+                                  :pool-rate 0.01
                                   :hardware-cost 0.00
 
                                   ;; BTC network defined variables
