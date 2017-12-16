@@ -10,7 +10,7 @@
    [:div.top-bar
     [:div.top-bar-title
      [:strong "Bitprofit.io"]]]
-   
+
    [:div.row [:h2 " "]]
 
    [:div.row
