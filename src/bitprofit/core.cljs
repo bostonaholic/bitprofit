@@ -30,7 +30,7 @@
                       (swap! app-state assoc :block-reward (/ (get response "reward") 100000000.00)))
                     (fn [response])))
 
-(defn main [] 
+(defn main []
   (load-from-btc-price-index!)
   (load-from-toshi!)
   (reagent/render-component [app app-state] (.getElementById js/document "bitprofit")))
