@@ -8,8 +8,8 @@
                                   :months 12
 
                                   ;; user defined variables
-                                  :hash-rate 5060.00
-                                  :power 1278.00
+                                  :hash-rate 14.00
+                                  :power 1372.00
                                   :power-cost 0.10
                                   :pool-rate 0.00
                                   :hardware-cost 0.00
