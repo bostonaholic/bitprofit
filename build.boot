@@ -2,7 +2,7 @@
  :source-paths #{"src"}
  :resource-paths #{"html"}
  :dependencies '[[adzerk/boot-cljs "2.1.4" :scope "test"]
-                 [crisptrutski/boot-cljs-test "0.2.1" :scope "test"]
+                 [crisptrutski/boot-cljs-test "0.3.4" :scope "test"]
                  [pandeiro/boot-http "0.7.3" :scope "test"]
                  [org.clojure/clojure "1.8.0"]
                  [org.clojure/clojurescript "1.8.51"]
