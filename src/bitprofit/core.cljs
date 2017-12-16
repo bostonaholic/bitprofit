@@ -15,10 +15,10 @@
                                   :hardware-cost 0.00
 
                                   ;; BTC network defined variables
-                                  :difficulty 178678307671.68800000
+                                  :difficulty 1590896927258.08000000
                                   :difficulty-change 0.05
-                                  :block-reward 25.00000000
-                                  :bitcoin-to-dollar 450.00}))
+                                  :block-reward 12.50000000
+                                  :bitcoin-to-dollar 18000.00}))
 
 (defn load-from-toshi! []
   (toshi/get-latest (fn [response]
