@@ -9,7 +9,7 @@
                  [org.clojure/clojurescript "1.9.946"]
                  [reagent "0.8.0-alpha2"]
                  [cljs-ajax "0.7.3"]
-                 [cljsjs/chartjs "2.0.1-0"]])
+                 [cljsjs/chartjs "2.6.0-0"]])
 
 (require
  '[adzerk.boot-cljs :refer [cljs]]
