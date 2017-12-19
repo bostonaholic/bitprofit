@@ -34,3 +34,8 @@
 
 (deftask dist []
   (cljs :optimizations :advanced))
+
+(deftask noop
+  "Noop to install dependencies."
+  []
+  identity)

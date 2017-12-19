@@ -1,0 +1,85 @@
+defaults: &defaults
+  working_directory: ~/bitprofit
+  docker:
+    - image: circleci/clojure:boot-2.7.2
+
+version: 2
+
+jobs:
+  build:
+    <<: *defaults
+    steps:
+      - restore_cache:
+          keys:
+            - v1-source-{{ .Branch }}-{{ .Revision }}
+            - v1-source- # used if checksum fails
+
+      - checkout
+
+      - save_cache:
+          key: v1-source-{{ .Branch }}-{{ .Revision }}
+          paths:
+            - ".git"
+
+      - restore_cache:
+          keys:
+            - v1-m2-{{ .Branch }}-{{ checksum "build.boot" }}
+            - v1-m2- # used if checksum fails
+
+      - run: boot noop
+
+      - save_cache:
+          key: v1-m2-{{ .Branch }}-{{ checksum "build.boot" }}
+          paths:
+            - "~/.m2"
+
+  test:
+    <<: *defaults
+    steps:
+      - restore_cache:
+          keys:
+            - v1-source-{{ .Branch }}-{{ .Revision }}
+            - v1-source- # used if checksum fails
+
+      - checkout
+
+      - restore_cache:
+          keys:
+            - v1-m2-{{ .Branch }}-{{ checksum "build.boot" }}
+            - v1-m2- # used if checksum fails
+
+      - run: boot test-once
+
+  deploy:
+    <<: *defaults
+    steps:
+      - restore_cache:
+          keys:
+            - v1-source-{{ .Branch }}-{{ .Revision }}
+            - v1-source- # used if checksum fails
+
+      - checkout
+
+      - restore_cache:
+          keys:
+            - v1-m2-{{ .Branch }}-{{ checksum "build.boot" }}
+            - v1-m2- # used if checksum fails
+
+      - run: exit 0
+
+workflows:
+  version: 2
+  build_test_deploy:
+    jobs:
+      - build
+
+      - test:
+          requires:
+            - build
+
+      - deploy:
+          requires:
+            - test
+          filters:
+            branches:
+              only: master
