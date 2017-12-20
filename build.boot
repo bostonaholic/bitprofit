@@ -4,6 +4,8 @@
  :dependencies '[[adzerk/boot-cljs "2.1.4" :scope "test"]
                  [crisptrutski/boot-cljs-test "0.3.4" :scope "test"]
                  [pandeiro/boot-http "0.8.3" :scope "test"]
+                 [hashobject/boot-s3 "0.1.3-SNAPSHOT" :scope "test"]
+                 [environ "1.1.0"]
 
                  [org.clojure/clojure "1.9.0"]
                  [org.clojure/clojurescript "1.9.946"]
@@ -14,7 +16,9 @@
 (require
  '[adzerk.boot-cljs :refer [cljs]]
  '[crisptrutski.boot-cljs-test :refer [test-cljs]]
- '[pandeiro.boot-http :refer [serve]])
+ '[pandeiro.boot-http :refer [serve]]
+ '[hashobject.boot-s3 :refer [s3-sync]]
+ '[environ.core :refer [env]])
 
 (task-options! test-cljs {:js-env :phantom})
 
@@ -43,7 +47,11 @@
   []
   (comp
    (cljs :optimizations :advanced)
-   (target :dir #{"target"})))
+   (target :dir #{"target"})
+   (s3-sync :source ""
+            :bucket "bitprofit.io"
+            :access-key (env :aws-access-key)
+            :secret-key (env :aws-secret-key))))
 
 (deftask noop
   "Noop to install dependencies."
