@@ -1,5 +1,5 @@
 (set-env!
- :source-paths #{"src"}
+ :source-paths #{"src" "dev"}
  :asset-paths #{"html"}
  :dependencies '[[adzerk/boot-cljs "2.1.4" :scope "test"]
                  [crisptrutski/boot-cljs-test "0.3.4" :scope "test"]
@@ -48,6 +48,8 @@
   (comp
    (cljs :optimizations :advanced
          :source-map true)
+   (sift :include #{#".boot-env"}
+         :invert true)
    (target :dir #{"target"})
    (s3-sync :source ""
             :bucket "bitprofit.io"
