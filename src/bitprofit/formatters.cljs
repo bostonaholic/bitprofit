@@ -1,6 +1,4 @@
-(ns bitprofit.formatters
-  (:require [goog.string :as gstring]
-            [goog.string.format :as gformat]))
+(ns bitprofit.formatters)
 
 (defmulti usd type)
 
@@ -8,4 +6,7 @@
   (usd (js/Number. x)))
 
 (defmethod usd :default [x]
-  (gstring/format "$ %.2f" x))
+  (str "$ "
+       (-> x
+           (.toFixed 2)
+           (.replace (js/RegExp. "(\\d)(?=(\\d{3})+\\.)" "g") "$1,"))))
