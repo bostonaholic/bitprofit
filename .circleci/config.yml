@@ -2,6 +2,7 @@ defaults: &defaults
   working_directory: ~/bitprofit
   docker:
     - image: circleci/clojure:boot-2.7.2
+    - image: wernight/phantomjs:2.1.1
 
 version: 2
 
