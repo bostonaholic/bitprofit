@@ -41,7 +41,9 @@
 (deftask dist
   "Build distribution."
   []
-  (cljs :optimizations :advanced))
+  (comp
+   (cljs :optimizations :advanced)
+   (target :dir #{"target"})))
 
 (deftask noop
   "Noop to install dependencies."
