@@ -78,6 +78,7 @@ workflows:
             - build
 
       - deploy:
+          context: org-global
           requires:
             - test
           filters:
