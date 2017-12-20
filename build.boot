@@ -6,6 +6,7 @@
                  [pandeiro/boot-http "0.8.3" :scope "test"]
                  [hashobject/boot-s3 "0.1.3-SNAPSHOT" :scope "test"]
                  [environ "1.1.0" :scope "test"]
+                 [boot-deps "0.1.9" :scope "test"]
 
                  [org.clojure/clojure "1.9.0"]
                  [org.clojure/clojurescript "1.9.946"]
@@ -18,7 +19,8 @@
  '[crisptrutski.boot-cljs-test :refer [test-cljs]]
  '[pandeiro.boot-http :refer [serve]]
  '[hashobject.boot-s3 :refer [s3-sync]]
- '[environ.core :refer [env]])
+ '[environ.core :refer [env]]
+ '[boot-deps :refer [ancient]])
 
 (task-options! test-cljs {:js-env :phantom})
 
