@@ -5,7 +5,7 @@
                  [crisptrutski/boot-cljs-test "0.3.4" :scope "test"]
                  [pandeiro/boot-http "0.8.3" :scope "test"]
                  [hashobject/boot-s3 "0.1.3-SNAPSHOT" :scope "test"]
-                 [environ "1.1.0"]
+                 [environ "1.1.0" :scope "test"]
 
                  [org.clojure/clojure "1.9.0"]
                  [org.clojure/clojurescript "1.9.946"]
