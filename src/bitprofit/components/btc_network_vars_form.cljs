@@ -25,7 +25,7 @@
      [:label {:for "bitcoin-to-dollar"} "BTC to USD ($)"]]]
 
    [:div.row
-    [:div.col.s12
+    [:div.col.s12.right-align
      [:span "Live Bitcoin data made possible by "
       [:a {:href "https://www.coinbase.com/" :target "_blank"} "Coinbase"]
       "."]]]])
