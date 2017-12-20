@@ -32,7 +32,7 @@
     [:div.col.s6.push-s6
      [duration state]]]
 
-   [:div.row
+   #_[:div.row
     [line-chart state]]
 
    [:div.row
