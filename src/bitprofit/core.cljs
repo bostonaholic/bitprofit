@@ -30,5 +30,5 @@
   (load-from-toshi!)
   (coinbase/exchange-rates "BTC"
                            (fn [data] (swap! app-state assoc :bitcoin-to-dollar (get-in data ["rates" "USD"])))
-                           (fn [response] (swap! app-state assoc :error "Unable to retrieve the latest BTC amount.")))
+                           (fn [response] (swap! app-state assoc :error "Unable to retrieve the latest BTC exchange rates.")))
   (reagent/render-component [app app-state] (.getElementById js/document "bitprofit")))
