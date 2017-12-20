@@ -13,7 +13,7 @@
       [:a.brand-logo "bitprofit.io"]
       [:ul.right
        [:li
-        [:a {:href "https://github.com/bostonaholic/bitprofit"} "Source Code"]]]]]]
+        [:a {:href "https://github.com/bostonaholic/bitprofit" :target "_blank"} "Source Code"]]]]]]
 
    [:div.container
     [:div.row
