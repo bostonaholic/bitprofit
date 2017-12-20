@@ -65,7 +65,7 @@ jobs:
             - v1-m2-{{ .Branch }}-{{ checksum "build.boot" }}
             - v1-m2- # used if checksum fails
 
-      - run: exit 0
+      - run: boot dist
 
 workflows:
   version: 2
