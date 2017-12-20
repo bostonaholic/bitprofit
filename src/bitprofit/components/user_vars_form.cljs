@@ -3,36 +3,29 @@
 (defn user-vars-form [state]
   [:form
    [:div.row
-    [:div.medium-4.columns
-     [:label.text-right.middle {:for "hash-rate"} "Hash Rate (TH/s)"]]
-    [:div.medium-8.columns
+    [:div.input-field.col.s6
      [:input#hash-rate {:type "text" :value (:hash-rate @state)
-                        :on-change #(swap! state assoc :hash-rate (-> % .-target .-value))}]]]
+                        :on-change #(swap! state assoc :hash-rate (-> % .-target .-value))}]
+     [:label {:for "hash-rate"} "Hash Rate (TH/s)"]]]
 
    [:div.row
-    [:div.medium-4.columns
-     [:label.text-right.middle {:for "power"} "Power (W)"]]
-    [:div.medium-8.columns
+    [:div.input-field.col.s6
      [:input#power {:type "text" :value (:power @state)
-                    :on-change #(swap! state assoc :power (-> % .-target .-value))}]]]
+                    :on-change #(swap! state assoc :power (-> % .-target .-value))}]
+     [:label {:for "power"} "Power (W)"]]
 
-   [:div.row
-    [:div.medium-4.columns
-     [:label.text-right.middle {:for "power-cost"} "Power Cost ($/kWh)"]]
-    [:div.medium-8.columns
+    [:div.input-field.col.s6
      [:input#power-cost {:type "text" :value (:power-cost @state)
-                         :on-change #(swap! state assoc :power-cost (-> % .-target .-value))}]]]
+                         :on-change #(swap! state assoc :power-cost (-> % .-target .-value))}]
+     [:label {:for "power-cost"} "Power Cost ($/kWh)"]]]
 
    [:div.row
-    [:div.medium-4.columns
-     [:label.text-right.middle {:for "pool-rate"} "Pool Fees (%)"]]
-    [:div.medium-8.columns
+    [:div.input-field.col.s6
      [:input#pool-rate {:type "text" :value (:pool-rate @state)
-                        :on-change #(swap! state assoc :pool-rate (-> % .-target .-value))}]]]
+                        :on-change #(swap! state assoc :pool-rate (-> % .-target .-value))}]
+     [:label {:for "pool-rate"} "Pool Fees (%)"]]
 
-   [:div.row
-    [:div.medium-4.columns
-     [:label.text-right.middle {:for "hardware-cost"} "Hardware Cost ($)"]]
-    [:div.medium-8.columns
+    [:div.input-field.col.s6
      [:input#hardware-cost {:type "text" :value (:hardware-cost @state)
-                            :on-change #(swap! state assoc :hardware-cost (-> % .-target .-value))}]]]])
+                            :on-change #(swap! state assoc :hardware-cost (-> % .-target .-value))}]
+     [:label {:for "hardware-cost"} "Hardware Cost ($)"]]]])

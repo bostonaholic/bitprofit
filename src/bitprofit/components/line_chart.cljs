@@ -47,5 +47,7 @@
   [line-chart-inner @state])
 
 (defn duration [state]
-  [:input#months {:type "text" :value (:months @state)
-                  :on-change #(swap! state assoc :months (int (-> % .-target .-value)))}])
+  [:div.input-field.col.s12
+   [:input#months {:type "text" :value (:months @state)
+                   :on-change #(swap! state assoc :months (int (-> % .-target .-value)))}]
+   [:label {:for "months"} "Months"]])

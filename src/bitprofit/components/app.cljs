@@ -7,31 +7,33 @@
 
 (defn app [state]
   [:div
-   [:div.top-bar
-    [:div.top-bar-title
-     [:strong "Bitprofit.io"]]]
+   [:nav.blue
+    [:div.container
+     [:nav.nav-wrapper
+      [:a.brand-logo "bitprofit.io"]
+      [:ul.right
+       [:li
+        [:a {:href "https://github.com/bostonaholic/bitprofit"} "Source Code"]]]]]]
 
-   [:div.row [:h2 " "]]
+   [:div.container
+    [:div.row
+     [error state]]]
 
    [:div.row
-    [:div.row
-     [error state]]
+    [:div.col.s6
+     [:div.card-panel
+      [user-vars-form state]]]
 
-    [:div.row
-     [:div.medium-5.columns.callout.success
-      [user-vars-form state]]
+    [:div.col.s6
+     [:div.card-panel
+      [btc-network-vars-form state]]]]
 
-     [:div.medium-6.columns
-      [:div.callout.secondary
-       [btc-network-vars-form state]]
+   #_[:div.row
+    [:div.col.s6.push-s6
+     [duration state]]]
 
-      [:div.medium-10.columns
-       [:label.text-right.middle {:for "months"} "Months"]]
-      [:div.medium-2.columns
-       [duration state]]]]
+   [:div.row
+    [line-chart state]]
 
-    [:div.row
-     [line-chart state]]
-
-    [:div.row
-     [table state]]]])
+   [:div.row
+    [table state]]])

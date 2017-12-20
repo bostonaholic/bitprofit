@@ -11,7 +11,7 @@
         profit-per-year (calc/profit-per-year revenue-per-year power-cost-per-year (:pool-rate @state))
         net-profit (calc/net-profit profit-per-year (:hardware-cost @state))
         pool-fees (calc/pool-fees revenue-per-year (:pool-rate @state))]
-    [:table
+    [:table.bordered
      [:thead
       [:tr
        [:th "Bitcoins"]
