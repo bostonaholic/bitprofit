@@ -47,4 +47,4 @@
   (cond
     (< profit-per-year 0) -1.00
     (zero? cost-hardware) 0.00
-    :else (/ cost-hardware (/ profit-per-year SECONDS-IN-A-YEAR))))
+    :else (* DAYS-IN-A-YEAR (/ cost-hardware profit-per-year))))
