@@ -1,4 +1,6 @@
-(ns bitprofit.formatters)
+(ns bitprofit.formatters
+  (:require [goog.string :as gstring]
+            [goog.string.format :as gformat]))
 
 (defmulti usd type)
 
@@ -6,4 +8,4 @@
   (usd (js/Number. x)))
 
 (defmethod usd :default [x]
-  (str "$" (.toFixed x 2)))
+  (gstring/format "$ %.2f" x))
