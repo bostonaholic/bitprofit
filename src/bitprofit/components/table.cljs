@@ -11,22 +11,25 @@
         profit-per-year (calc/profit-per-year revenue-per-year power-cost-per-year (:pool-rate @state))
         net-profit (calc/net-profit profit-per-year (:hardware-cost @state))
         pool-fees (calc/pool-fees revenue-per-year (:pool-rate @state))]
-    [:table.bordered
-     [:thead
-      [:tr
-       [:th "Bitcoins"]
-       [:th "Revenue (USD)"]
-       [:th "Power Cost (USD)"]
-       [:th "Pool Fees (USD)"]
-       [:th "Hardware Costs"]
-       [:th "Profit"]
-       [:th "Net Profit"]]]
-     [:tbody
-      [:tr
-       [:td coins-per-year]
-       [:td (format/usd revenue-per-year)]
-       [:td (format/usd power-cost-per-year)]
-       [:td (format/usd pool-fees)]
-       [:td (format/usd (:hardware-cost @state))]
-       [:td (format/usd profit-per-year)]
-       [:td (format/usd net-profit)]]]]))
+    [:div.container
+     [:table.bordered
+      [:thead
+       [:tr
+        [:th "Year"]
+        [:th "Bitcoins"]
+        [:th "Revenue (USD)"]
+        [:th "Power Cost (USD)"]
+        [:th "Pool Fees (USD)"]
+        [:th "Hardware Costs"]
+        [:th "Profit"]
+        [:th "Net Profit"]]]
+      [:tbody
+       [:tr
+        [:td 1]
+        [:td coins-per-year]
+        [:td (format/usd revenue-per-year)]
+        [:td (format/usd power-cost-per-year)]
+        [:td (format/usd pool-fees)]
+        [:td (format/usd (:hardware-cost @state))]
+        [:td (format/usd profit-per-year)]
+        [:td (format/usd net-profit)]]]]]))
