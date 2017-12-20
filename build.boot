@@ -46,7 +46,8 @@
   "Build distribution."
   []
   (comp
-   (cljs :optimizations :advanced)
+   (cljs :optimizations :advanced
+         :source-map true)
    (target :dir #{"target"})
    (s3-sync :source ""
             :bucket "bitprofit.io"
