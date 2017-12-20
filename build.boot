@@ -18,21 +18,29 @@
 
 (task-options! test-cljs {:js-env :phantom})
 
-(deftask test-once []
+(deftask test-once
+  "Run tests."
+  []
   (merge-env! :source-paths #{"test"})
   (test-cljs :cljs-opts {:optimizations :whitespace}))
 
-(deftask test-auto []
+(deftask test-auto
+  "Run tests and watch for changes."
+  []
   (merge-env! :source-paths #{"test"})
   (comp (watch)
         (test-cljs)))
 
-(deftask dev []
+(deftask dev
+  "Start development server and watch for changes."
+  []
   (comp (serve)
         (watch)
         (cljs)))
 
-(deftask dist []
+(deftask dist
+  "Build distribution."
+  []
   (cljs :optimizations :advanced))
 
 (deftask noop
