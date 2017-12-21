@@ -52,11 +52,15 @@
          :source-map true)
    (sift :include #{#".boot-env"}
          :invert true)
-   (target :dir #{"target"})
-   (s3-sync :source ""
-            :bucket (env :aws-bucket)
-            :access-key (env :aws-access-key)
-            :secret-key (env :aws-secret-key))))
+   (target :dir #{"target"})))
+
+(deftask deploy
+  "Deploy distribution."
+  []
+  (s3-sync :source ""
+           :bucket (env :aws-bucket)
+           :access-key (env :aws-access-key)
+           :secret-key (env :aws-secret-key)))
 
 (deftask noop
   "Noop to install dependencies."
