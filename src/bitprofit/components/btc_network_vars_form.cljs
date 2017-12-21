@@ -27,5 +27,8 @@
    [:div.row
     [:div.col.s12.right-align
      [:span "Live Bitcoin data made possible by "
-      [:a {:href "https://www.coinbase.com/" :target "_blank"} "Coinbase"]
+      [:a.tooltipped {:href "https://www.coinbase.com/join/53a04d278317c3e09b00000c"
+                      :target "_blank"
+                      :data-tooltip "Use my referral link for $10 in BTC"}
+       "Coinbase"]
       "."]]]])
