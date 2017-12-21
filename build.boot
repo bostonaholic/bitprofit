@@ -74,14 +74,27 @@
    (target)
    (replace-version-metadata!)))
 
+(deftask cloudfront-invalidate
+  "Invalidate a CloudFront distribution."
+  [d distribution-id DISTRIBUTION_ID str "cloudfront distribution id"
+   a access-key      ACCESS_KEY      str "aws access key"
+   k secret-key      SECRET          str "aws secret key"]
+  identity)
+
 (deftask deploy
   "Deploy distribution."
   []
   (set-env! :resource-paths #{"target"})
-  (s3-sync :source "" ; target/
-           :bucket (env :aws-bucket)
-           :access-key (env :aws-access-key)
-           :secret-key (env :aws-secret-key)))
+  (let [access-key (env :aws-access-key)
+        secret-key (env :aws-secret-key)]
+    (comp
+     (s3-sync :source "" ; target/
+              :bucket (env :aws-bucket)
+              :access-key access-key
+              :secret-key secret-key)
+     (cloudfront-invalidate :distribution-id (env :cloudfront-distribution-id)
+                            :access-key access-key
+                            :secret-key secret-key))))
 
 (deftask noop
   "Noop to install dependencies."
