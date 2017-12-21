@@ -68,7 +68,7 @@ jobs:
             - v1-m2-{{ .Branch }}-{{ checksum "build.boot" }}
             - v1-m2- # used if checksum fails
 
-      - run: boot dist deploy
+      - run: boot build deploy
 
   ancient:
     <<: *defaults

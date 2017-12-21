@@ -44,7 +44,7 @@
         (watch)
         (cljs)))
 
-(deftask dist
+(deftask build
   "Build distribution."
   []
   (comp
