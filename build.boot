@@ -54,7 +54,7 @@
          :invert true)
    (target :dir #{"target"})
    (s3-sync :source ""
-            :bucket "bitprofit.io"
+            :bucket (env :aws-bucket)
             :access-key (env :aws-access-key)
             :secret-key (env :aws-secret-key))))
 
