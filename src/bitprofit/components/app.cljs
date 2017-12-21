@@ -13,7 +13,12 @@
       [:a.brand-logo "bitprofit.io"]
       [:ul.right
        [:li
-        [:a {:href "https://github.com/bostonaholic/bitprofit" :target "_blank"} "Source Code"]]]]]]
+        [:a {:href "https://github.com/bostonaholic/bitprofit" :target "_blank"} "Source Code"]]
+       [:li
+        [:a.btn.orange.tooltipped {:href "https://www.coinbase.com/join/53a04d278317c3e09b00000c"
+                                   :target "_blank"
+                                   :data-tooltip "Use my referral link for $10 in BTC"}
+         "Buy Bitcoin!"]]]]]]
 
    [:div.container
     [:div.row
