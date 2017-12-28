@@ -36,6 +36,13 @@ jobs:
           paths:
             - "~/.m2"
 
+      - run: boot build
+
+      - save_cache:
+          key: v1-target-{{ .Branch }}-{{ .Revision }}
+          paths:
+            - "target"
+
   test:
     <<: *defaults
     steps:
@@ -58,17 +65,15 @@ jobs:
     steps:
       - restore_cache:
           keys:
-            - v1-source-{{ .Branch }}-{{ .Revision }}
-            - v1-source- # used if checksum fails
-
-      - checkout
+            - v1-target-{{ .Branch }}-{{ .Revision }}
+            - v1-target- # used if checksum fails
 
       - restore_cache:
           keys:
             - v1-m2-{{ .Branch }}-{{ checksum "build.boot" }}
             - v1-m2- # used if checksum fails
 
-      - run: boot build deploy
+      - run: boot deploy
 
   ancient:
     <<: *defaults
@@ -104,6 +109,7 @@ workflows:
       - deploy:
           context: org-global
           requires:
+            - build
             - test
           filters:
             branches:
