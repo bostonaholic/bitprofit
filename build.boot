@@ -23,7 +23,7 @@
  '[hashobject.boot-s3 :refer [s3-sync]]
  '[environ.core :refer [env]]
  '[boot-deps :refer [ancient]]
- '[boot.util :refer [info dbug]])
+ '[boot.util :refer [info]])
 
 (task-options! test-cljs {:js-env :phantom})
 
@@ -55,8 +55,6 @@
     (let [sha (or (env :circle-sha1)
                   (str/replace (:out (shell/sh "git" "rev-parse" "HEAD"))
                                #"\n" ""))]
-      (dbug ":circle-sha1 %s\n" (env :circle-sha1))
-      (dbug "sha %s\n" sha)
       (shell/sh "sed" "-i" "" (str "s/HEAD/" sha "/") "target/index.html"))))
 
 (deftask build
