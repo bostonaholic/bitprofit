@@ -16,6 +16,8 @@
 
 (require
  '[adzerk.boot-cljs :refer [cljs]]
+ '[clojure.java.shell :as shell]
+ '[clojure.string :as str]
  '[crisptrutski.boot-cljs-test :refer [test-cljs]]
  '[pandeiro.boot-http :refer [serve]]
  '[hashobject.boot-s3 :refer [s3-sync]]
@@ -44,6 +46,15 @@
         (watch)
         (cljs)))
 
+(deftask replace-version-metadata!
+  "Replaces the version metadata in the target/index.html"
+  []
+  (with-post-wrap fileset
+    (let [sha (or (env :circle-sha1)
+                  (str/replace (:out (shell/sh "git" "rev-parse" "HEAD"))
+                               #"\n" ""))]
+      (shell/sh "sed" "-i" "" (str "s/HEAD/" sha "/") "target/index.html"))))
+
 (deftask build
   "Build distribution."
   []
@@ -52,7 +63,8 @@
          :source-map true)
    (sift :include #{#".boot-env"}
          :invert true)
-   (target :dir #{"target"})))
+   (target :dir #{"target"})
+   (replace-version-metadata!)))
 
 (deftask deploy
   "Deploy distribution."
