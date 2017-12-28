@@ -22,7 +22,8 @@
  '[pandeiro.boot-http :refer [serve]]
  '[hashobject.boot-s3 :refer [s3-sync]]
  '[environ.core :refer [env]]
- '[boot-deps :refer [ancient]])
+ '[boot-deps :refer [ancient]]
+ '[boot.util :refer [info]])
 
 (task-options! test-cljs {:js-env :phantom})
 
@@ -50,6 +51,7 @@
   "Replaces the version metadata in the target/index.html"
   []
   (with-post-wrap fileset
+    (info "Replacing version metadata...\n")
     (let [sha (or (env :circle-sha1)
                   (str/replace (:out (shell/sh "git" "rev-parse" "HEAD"))
                                #"\n" ""))]
