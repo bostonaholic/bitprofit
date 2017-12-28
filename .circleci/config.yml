@@ -23,6 +23,7 @@ jobs:
           key: v1-source-{{ .Branch }}-{{ .Revision }}
           paths:
             - ".git"
+            - "build.boot"
 
       - restore_cache:
           keys:
@@ -67,6 +68,13 @@ jobs:
           keys:
             - v1-target-{{ .Branch }}-{{ .Revision }}
             - v1-target- # used if checksum fails
+
+      - restore_cache:
+          keys:
+            - v1-source-{{ .Branch }}-{{ .Revision }}
+            - v1-source- # used if checksum fails
+
+      - checkout
 
       - restore_cache:
           keys:
