@@ -1,6 +1,6 @@
 # bitprofit
 
-[See it in action](http://matthewboston.com/bitprofit)
+[See it in action](https://bitprofit.io)
 
 ## Dependencies
 
