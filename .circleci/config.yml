@@ -36,7 +36,7 @@ jobs:
           paths:
             - "~/.m2"
 
-      - run: boot build
+      - run: boot -vvv build
 
       - save_cache:
           key: v1-target-{{ .Branch }}-{{ .Revision }}
