@@ -69,21 +69,21 @@ jobs:
   deploy:
     <<: *defaults
     steps:
-      # - restore_cache:
-      #     keys:
-      #       - v1-source-{{ .Branch }}-{{ .Revision }}
+      - restore_cache:
+          keys:
+            - v1-source-{{ .Branch }}-{{ .Revision }}
 
       - checkout
 
-      # - restore_cache:
-      #     keys:
-      #       - v1-m2-{{ .Branch }}-{{ checksum "build.boot" }}
+      - restore_cache:
+          keys:
+            - v1-m2-{{ .Branch }}-{{ checksum "build.boot" }}
 
-      # - restore_cache:
-      #     keys:
-      #       - v1-target-{{ .Branch }}-{{ .Revision }}
+      - restore_cache:
+          keys:
+            - v1-target-{{ .Branch }}-{{ .Revision }}
 
-      - run: boot build deploy
+      - run: boot deploy
 
   ancient:
     <<: *defaults
