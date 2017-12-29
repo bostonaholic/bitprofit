@@ -15,7 +15,6 @@ jobs:
       - restore_cache:
           keys:
             - v1-source-{{ .Branch }}-{{ .Revision }}
-            - v1-source- # used if checksum fails
 
       - checkout
 
@@ -28,7 +27,6 @@ jobs:
       - restore_cache:
           keys:
             - v1-m2-{{ .Branch }}-{{ checksum "build.boot" }}
-            - v1-m2- # used if checksum fails
 
       - run: boot noop
 
@@ -36,6 +34,10 @@ jobs:
           key: v1-m2-{{ .Branch }}-{{ checksum "build.boot" }}
           paths:
             - "~/.m2"
+
+      - restore_cache:
+          keys:
+            - v1-target-{{ .Branch }}-{{ .Revision }}
 
       - run: boot build
 
@@ -50,36 +52,36 @@ jobs:
       - restore_cache:
           keys:
             - v1-source-{{ .Branch }}-{{ .Revision }}
-            - v1-source- # used if checksum fails
 
       - checkout
 
       - restore_cache:
           keys:
             - v1-m2-{{ .Branch }}-{{ checksum "build.boot" }}
-            - v1-m2- # used if checksum fails
 
       - run: boot test-once
+
+      - save_cache:
+          key: v1-m2-{{ .Branch }}-{{ checksum "build.boot" }}
+          paths:
+            - "~/.m2"
 
   deploy:
     <<: *defaults
     steps:
       - restore_cache:
           keys:
-            - v1-target-{{ .Branch }}-{{ .Revision }}
-            - v1-target- # used if checksum fails
-
-      - restore_cache:
-          keys:
             - v1-source-{{ .Branch }}-{{ .Revision }}
-            - v1-source- # used if checksum fails
 
       - checkout
 
       - restore_cache:
           keys:
             - v1-m2-{{ .Branch }}-{{ checksum "build.boot" }}
-            - v1-m2- # used if checksum fails
+
+      - restore_cache:
+          keys:
+            - v1-target-{{ .Branch }}-{{ .Revision }}
 
       - run: boot deploy
 
@@ -89,14 +91,12 @@ jobs:
       - restore_cache:
           keys:
             - v1-source-{{ .Branch }}-{{ .Revision }}
-            - v1-source- # used if checksum fails
 
       - checkout
 
       - restore_cache:
           keys:
             - v1-m2-{{ .Branch }}-{{ checksum "build.boot" }}
-            - v1-m2- # used if checksum fails
 
       - run: boot ancient
 
