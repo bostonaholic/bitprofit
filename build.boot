@@ -5,6 +5,7 @@
                  [crisptrutski/boot-cljs-test "0.3.4" :scope "test"]
                  [pandeiro/boot-http "0.8.3" :scope "test"]
                  [hashobject/boot-s3 "0.1.3-SNAPSHOT" :scope "test"]
+                 [environ "1.1.0" :scope "test"]
                  [boot-deps "0.1.9" :scope "test"]
 
                  [org.clojure/clojure "1.9.0"]
@@ -20,6 +21,7 @@
  '[crisptrutski.boot-cljs-test :refer [test-cljs]]
  '[pandeiro.boot-http :refer [serve]]
  '[hashobject.boot-s3 :refer [s3-sync]]
+ '[environ.core :refer [env]]
  '[boot-deps :refer [ancient]]
  '[boot.util :refer [info]])
 
@@ -51,7 +53,7 @@
   (with-post-wrap fileset
     (info "Replacing version metadata...\n")
     (let [os-name (-> "uname" shell/sh :out str/trim)
-          sha (or (get-sys-env "CIRCLE_SHA1")
+          sha (or (env :circle-sha1)
                   (-> (shell/sh "git" "rev-parse" "HEAD") :out str/trim))]
       (condp = os-name
         "Darwin" (shell/sh "sed" "-i" "" (str "s/HEAD/" sha "/") "target/index.html")
@@ -72,9 +74,9 @@
   "Deploy distribution."
   []
   (s3-sync :source "" ;; target/
-           :bucket (get-sys-env "AWS_BUCKET" :required)
-           :access-key (get-sys-env "AWS_ACCESS_KEY" :required)
-           :secret-key (get-sys-env "AWS_SECRET_KEY" :required)
+           :bucket (env :aws-bucket)
+           :access-key (env :aws-access-key)
+           :secret-key (env :aws-secret-key)
            :force true))
 
 (deftask noop
