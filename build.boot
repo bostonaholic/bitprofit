@@ -52,10 +52,13 @@
   []
   (with-post-wrap fileset
     (info "Replacing version metadata...\n")
-    (let [sha (or (env :circle-sha1)
+    (let [os-name (-> "uname" shell/sh :out str/trim)
+          sha (or (env :circle-sha1)
                   (str/replace (:out (shell/sh "git" "rev-parse" "HEAD"))
                                #"\n" ""))]
-      (shell/sh "sed" "-i" "" (str "s/HEAD/" sha "/") "target/index.html"))))
+      (condp = os-name
+        "Darwin" (shell/sh "sed" "-i" "" (str "s/HEAD/" sha "/") "target/index.html")
+        (shell/sh "sed" "-i" (str "s/HEAD/" sha "/") "target/index.html")))))
 
 (deftask build
   "Build distribution."
