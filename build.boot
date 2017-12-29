@@ -54,7 +54,7 @@
     (info "Replacing version metadata...\n")
     (let [os-name (-> "uname" shell/sh :out str/trim)
           sha (or (env :circle-sha1)
-                  (str/trim (:out (shell/sh "git" "rev-parse" "HEAD"))))]
+                  (-> (shell/sh "git" "rev-parse" "HEAD") :out str/trim))]
       (condp = os-name
         "Darwin" (shell/sh "sed" "-i" "" (str "s/HEAD/" sha "/") "target/index.html")
         (shell/sh "sed" "-i" (str "s/HEAD/" sha "/") "target/index.html")))))
