@@ -55,7 +55,7 @@
                   (-> (shell/sh "git" "rev-parse" "HEAD") :out str/trim))]
       (condp = os-name
         "Darwin" (shell/sh "sed" "-i" "" (str "s/HEAD/" sha "/") "target/index.html")
-        (shell/sh "sed" "-i" (str "s/HEAD/" sha "/") "target/index.html")))))
+        "Linux"  (shell/sh "sed" "-i"    (str "s/HEAD/" sha "/") "target/index.html")))))
 
 (deftask build
   "Build distribution."
