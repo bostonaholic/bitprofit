@@ -72,9 +72,9 @@
   "Deploy distribution."
   []
   (s3-sync :source "" ;; target/
-           :bucket (get-sys-env "AWS_BUCKET")
-           :access-key (get-sys-env "AWS_ACCESS_KEY")
-           :secret-key (get-sys-env "AWS_SECRET_KEY")
+           :bucket (get-sys-env "AWS_BUCKET" :required)
+           :access-key (get-sys-env "AWS_ACCESS_KEY" :required)
+           :secret-key (get-sys-env "AWS_SECRET_KEY" :required)
            :force true))
 
 (deftask noop
