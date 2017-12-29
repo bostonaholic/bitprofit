@@ -76,7 +76,8 @@
   (s3-sync :source "" ;; target/
            :bucket (env :aws-bucket)
            :access-key (env :aws-access-key)
-           :secret-key (env :aws-secret-key)))
+           :secret-key (env :aws-secret-key)
+           :force true))
 
 (deftask noop
   "Noop to install dependencies."
