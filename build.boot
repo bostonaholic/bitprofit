@@ -73,7 +73,7 @@
 (deftask deploy
   "Deploy distribution."
   []
-  (s3-sync :source "" ;; target/
+  (s3-sync :source "" ; target/
            :bucket (env :aws-bucket)
            :access-key (env :aws-access-key)
            :secret-key (env :aws-secret-key)
