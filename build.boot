@@ -67,7 +67,7 @@
          :source-map true)
    (sift :include #{#".boot-env"}
          :invert true)
-   (target :dir #{"target"})
+   (target)
    (replace-version-metadata!)))
 
 (deftask deploy
