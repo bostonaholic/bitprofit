@@ -2,7 +2,7 @@ defaults: &defaults
   working_directory: ~/bitprofit
   docker:
     - image: circleci/clojure:boot-2.7.2
-    - image: andrewberry/docker-phantomjs:fix-high-uid
+    - image: wernight/docker-phantomjs:latest
 
 version: 2
 
