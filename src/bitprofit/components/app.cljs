@@ -17,7 +17,7 @@
        [:li
         [:a.btn.orange.tooltipped {:href "https://www.coinbase.com/join/53a04d278317c3e09b00000c"
                                    :target "_blank"
-                                   :data-tooltip "Use my referral link to get $10 of free bitcoin"}
+                                   :data-tooltip "Use this referral link to get $10 of free bitcoin"}
          "Buy Bitcoin!"]]]]]]
 
    [:div.container
