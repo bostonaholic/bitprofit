@@ -9,10 +9,10 @@
                  [boot-deps "0.1.9" :scope "test"]
 
                  [org.clojure/clojure "1.9.0"]
-                 [org.clojure/clojurescript "1.9.946"]
-                 [reagent "0.8.0-alpha2"]
+                 [org.clojure/clojurescript "1.10.339"]
+                 [reagent "0.8.1"]
                  [cljs-ajax "0.7.3"]
-                 [cljsjs/chartjs "2.6.0-0"]])
+                 [cljsjs/chartjs "2.7.0-0"]])
 
 (require
  '[adzerk.boot-cljs :refer [cljs]]
