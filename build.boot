@@ -12,7 +12,11 @@
                  [org.clojure/clojurescript "1.10.339"]
                  [reagent "0.8.1"]
                  [cljs-ajax "0.7.3"]
-                 [cljsjs/chartjs "2.7.0-0"]])
+                 [cljsjs/chartjs "2.7.0-0"]
+
+                 ;; overrides for clojure 1.9.0 compatibility
+                 [bouncycastle/bcprov-jdk16-nosign "140"]
+                 [pandect "0.6.1"]])
 
 (require
  '[adzerk.boot-cljs :refer [cljs]]
