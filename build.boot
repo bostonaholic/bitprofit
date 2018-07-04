@@ -8,7 +8,7 @@
                  [environ "1.1.0" :scope "test"]
                  [boot-deps "0.1.9" :scope "test"]
 
-                 [org.clojure/clojure "1.8.0"]
+                 [org.clojure/clojure "1.9.0"]
                  [org.clojure/clojurescript "1.10.339"]
                  [reagent "0.8.1"]
                  [cljs-ajax "0.7.3"]
