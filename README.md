@@ -1,4 +1,4 @@
-# bitprofit
+# bitprofit [![CircleCI](https://circleci.com/gh/bostonaholic/bitprofit.svg?style=svg)](https://circleci.com/gh/bostonaholic/bitprofit)
 
 [See it in action](https://bitprofit.io)
 
