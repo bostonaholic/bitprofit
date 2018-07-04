@@ -1,5 +1,5 @@
 (ns bitprofit.ajax
-    (:require [ajax.core :as ajx]))
+  (:require [ajax.core :as ajx]))
 
 ;; (defn handler [response] ...)
 ;; (defn error-handler [response] ...)
