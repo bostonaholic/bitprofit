@@ -1,18 +1,18 @@
 (set-env!
  :source-paths #{"src" "dev"}
  :resource-paths #{"html"}
- :dependencies '[[adzerk/boot-cljs "2.1.4" :scope "test"]
+ :dependencies '[[adzerk/boot-cljs "2.1.5" :scope "test"]
                  [crisptrutski/boot-cljs-test "0.3.4" :scope "test"]
                  [pandeiro/boot-http "0.8.3" :scope "test"]
                  [hashobject/boot-s3 "0.1.3-SNAPSHOT" :scope "test"]
                  [environ "1.1.0" :scope "test"]
                  [boot-deps "0.1.9" :scope "test"]
 
-                 [org.clojure/clojure "1.9.0"]
-                 [org.clojure/clojurescript "1.10.339"]
+                 [org.clojure/clojure "1.10.0-RC5"]
+                 [org.clojure/clojurescript "1.10.439"]
                  [reagent "0.8.1"]
-                 [cljs-ajax "0.7.3"]
-                 [cljsjs/chartjs "2.7.0-0"]
+                 [cljs-ajax "0.8.0"]
+                 [cljsjs/chartjs "2.7.3-0"]
 
                  ;; overrides for clojure 1.9.0 compatibility
                  [bouncycastle/bcprov-jdk16-nosign "140"]
