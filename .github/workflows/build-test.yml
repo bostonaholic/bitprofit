@@ -1,4 +1,4 @@
-name: Build Test Deploy
+name: Build Test
 
 on:
   # run on all pushes except master
