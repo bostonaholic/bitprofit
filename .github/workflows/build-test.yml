@@ -1,13 +1,9 @@
 name: Build Test
 
 on:
-  # run on all pushes except master
   push:
-    branches:
-      - '*'
-      - '!master'
+    branches-ignore: [ master ]
 
-  # run on pull requests to master
   pull_request:
     branches: [ "master" ]
 
