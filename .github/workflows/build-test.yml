@@ -32,7 +32,9 @@ jobs:
 
     - name: Install dependencies
       run: boot noop
+
     - name: Build
       run: boot build
+
     - name: Run tests
       run: boot test-once
