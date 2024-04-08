@@ -23,6 +23,14 @@ jobs:
       with:
         boot: 2.8.2
 
+    - name: Cache clojure dependencies
+      uses: actions/cache@v3
+      with:
+        path: |
+          ~/.m2/repository
+        key: bootdeps-${{ hashFiles('build.boot) }}
+        restore-keys: bootdeps-
+
     - name: Install dependencies
       run: boot noop
 
