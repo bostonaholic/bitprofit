@@ -1,9 +1,8 @@
 name: Build Test Deploy
 
 on:
+  # run on all pushes to master
   push:
-    branches: [ "master" ]
-  pull_request:
     branches: [ "master" ]
 
 jobs:
