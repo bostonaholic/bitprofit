@@ -1,0 +1,41 @@
+name: Build Branches
+
+on:
+  push:
+    branches-ignore: [ master ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Prepare java
+      uses: actions/setup-java@v4
+      with:
+        distribution: 'temurin'
+        java-version: '21'
+
+    - name: Install Clojure tools
+      uses: DeLaGuardo/setup-clojure@12.5
+      with:
+        boot: 2.8.2
+
+    - name: Cache dependencies
+      uses: actions/cache@v4
+      with:
+        path: |
+          ~/.m2/repository
+        key: bootdeps-${{ hashFiles('build.boot') }}
+        restore-keys: bootdeps-
+
+    - name: Install dependencies
+      run: boot noop
+
+    - name: Build
+      run: boot build
+
+    - name: Run tests
+      run: boot test-once
