@@ -25,10 +25,10 @@ jobs:
         distribution: 'temurin'
         java-version: '21'
 
-      - name: Install Clojure tools
-        uses: DeLaGuardo/setup-clojure@12.5
-        with:
-          boot: 2.8.2
+    - name: Install Clojure tools
+      uses: DeLaGuardo/setup-clojure@12.5
+      with:
+        boot: 2.8.2
 
     - name: Install dependencies
       run: boot noop
